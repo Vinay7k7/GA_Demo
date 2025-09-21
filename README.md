@@ -18,3 +18,5 @@ If there are already changes in the github repo then you have to import those ch
 
 And you want to push the changes that you have got in your local repo irrespective of what changes you have got in the github then 
 `git push -u origin main --force` this will forcefully pushes the changes in the remote github .
+
+This is a changes i am addign from the remote github this chanes are not yet applied in the local Repo /
