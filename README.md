@@ -13,3 +13,8 @@ and after you add the new account details then you have to run this command `git
 
 Then you push the changes to the main using `push -u origin main`
 
+If there are already changes in the github repo then you have to import those changes into your local for you can run this command 
+`git pull origin main --rebase`
+
+And you want to push the changes that you have got in your local repo irrespective of what changes you have got in the github then 
+`git push -u origin main --force` this will forcefully pushes the changes in the remote github .
