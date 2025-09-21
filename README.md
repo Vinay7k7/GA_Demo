@@ -19,4 +19,35 @@ If there are already changes in the github repo then you have to import those ch
 And you want to push the changes that you have got in your local repo irrespective of what changes you have got in the github then 
 `git push -u origin main --force` this will forcefully pushes the changes in the remote github .
 
-This is a changes i am addign from the remote github this chanes are not yet applied in the local Repo /
+
+
+✅ So, the flow is:
+
+git fetch origin
+
+Decide:
+
+git merge origin/main → take everything
+
+git cherry-pick <hash> → take specific commits
+
+git checkout origin/main -- fileX → take specific files[Local Branch]        main
+        │
+        ├── your commits you’re working on
+        │
+        ▼
+[Remote-tracking]     origin/main
+        │   (a bookmark in your local repo)
+        ▼
+[Remote on GitHub]    main (on GitHub’s server)
+
+
+Working Directory
+      │
+      └─(git add .)→ Staging Area
+                       │
+      └─(git commit)→ Local branch main
+                           │
+      └─(git push) → GitHub main (remote)
+                           │
+      └─origin/main (local remote-tracking) ← updated automatically after push/fetch
