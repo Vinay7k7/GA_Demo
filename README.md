@@ -50,4 +50,4 @@ Working Directory
                            │
       └─(git push) → GitHub main (remote)
                            │
-      └─origin/main (local remote-tracking) ← updated automatically after push/fetch
+      └─origin/main (local remote-tracking) ← updated automatically after push/fetch.
