@@ -1,5 +1,12 @@
 name: 02 - Workflow Events
-on: push
+# now we will add more then one event triggers 
+on:
+    push:
+    pull_request:
+    schedule:
+        - cron: '*/5 * * * *'
+    workflow_dispatch:
+    
 
 jobs:
     echo:
