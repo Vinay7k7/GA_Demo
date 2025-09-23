@@ -17,7 +17,7 @@ jobs:
         steps:
             - name: Show OS
               shell: bash
-              run: echo "I am running on bash."
+              run: echo "Running in ${{runner.os}}."
     mac-echo:
         runs-on: macos-latest
         steps:
