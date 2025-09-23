@@ -1,0 +1,26 @@
+name: 03 - Workflow Runners
+on:
+    push:
+    # workflow_dispatch:
+jobs:
+    ubuntu-echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show OS
+              run: |
+                echo "I am running on ubuntu."
+                echo "Running in ${{runner.os}}."
+
+# To access the environment variables in the windows a bit different so that is why i have included the shell: bash to run this runner.os in bash                 
+    windows-echo:
+        runs-on: windows-latest
+        steps:
+            - name: Show OS
+              shell: bash
+              run: echo "I am running on bash."
+    mac-echo:
+        runs-on: macos-latest
+        steps:
+            - name: Show OS
+              run: echo "I am running on ${{runner.os}}."
+
