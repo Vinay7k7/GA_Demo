@@ -1,6 +1,6 @@
 name: 06 - context
 # Below is the runner context
-run-name: MY name is ${{inputs.name}}
+run-name: MY name is -->  ${{inputs.name}}
 
 # Using the Env contest 
 # In the Globule level
@@ -35,7 +35,6 @@ jobs:
                   echo "RUN_ID: ${{github.run_id}}"
                   echo "Run number ${{github.run_number}}"
                   echo "Job name ${{github.job}}"
-                  echo "run name $run-name"
 
             # Below we are using the variable  context added in the github settings in UI
             - name: Retrive Varable
