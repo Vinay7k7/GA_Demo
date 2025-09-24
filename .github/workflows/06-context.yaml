@@ -1,6 +1,7 @@
 name: 06 - context
 on:
     push:
+    workflow_dispatch:
 jobs:
     echo-data:
         runs-on: ubuntu-latest
@@ -17,6 +18,7 @@ jobs:
                   echo "Run number ${{github.run_number}}"
                   echo "Job name ${{github.job}}"
 
+            # Below we are using the variable  context
             - name: Retrive Varable
               run: |
                   echo "Event name ${{vars.MY_VAR}}"
