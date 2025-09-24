@@ -53,4 +53,10 @@ jobs:
               run: |
                   echo "First env variable is ${{env.v1}}"
                   echo "Second env variable is ${{env.v2}}"
-
+    Another-way-to-use-global-variables:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display global variable
+              run: |
+                  echo "First env variable is $v1"
+                  echo "Second env variable is $v2"
