@@ -1,6 +1,12 @@
 name: 06 - context
 # Below is the runner context
 run-name: MY name is ${{inputs.name}}
+
+# Using the Env contest 
+# In the Globule level
+env:
+    v1: "This is a first globule variable "
+    v2: "This is a second globule variable"
 on:
     push:
     workflow_dispatch:
@@ -14,6 +20,9 @@ on:
 jobs:
     echo-data:
         runs-on: ubuntu-latest
+        # Using the env context in job level 
+        env:
+            v1: "This is a first job variable "
         steps:
             # Below we are using the github context
             - name: Display Information
@@ -31,4 +40,17 @@ jobs:
             - name: Retrive Varable
               run: |
                   echo "Event name ${{vars.MY_VAR}}"
+
+            - name: Testing the env context
+              run: |
+                  echo "First env variable is ${{env.v1}}"
+                  echo "Second env variable is ${{env.v2}}"
+
+            - name: Testing the job env context
+              # Using the evn context in step level 
+              env:
+                  v2: "This is a second step variable"
+              run: |
+                  echo "First env variable is ${{env.v1}}"
+                  echo "Second env variable is ${{env.v2}}"
 
