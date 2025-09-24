@@ -1,7 +1,16 @@
 name: 06 - context
+# Below is the runner context
+run-name: MY name is ${{inputs.name}}
 on:
     push:
     workflow_dispatch:
+        # Below is the input context 
+        inputs:
+            Name:
+                type: string
+                default: 'world'
+                description: 'The name is the input to the workflow '
+
 jobs:
     echo-data:
         runs-on: ubuntu-latest
@@ -18,7 +27,7 @@ jobs:
                   echo "Run number ${{github.run_number}}"
                   echo "Job name ${{github.job}}"
 
-            # Below we are using the variable  context
+            # Below we are using the variable  context added in the github settings in UI
             - name: Retrive Varable
               run: |
                   echo "Event name ${{vars.MY_VAR}}"
