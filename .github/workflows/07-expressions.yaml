@@ -1,5 +1,5 @@
 name: 07 - Expressions & variables
-run-name: This run is happening on  -->  ${{inputs.name && 'ON' || 'OFF' }}
+run-name: This run is happening on  -->  ${{inputs.debug && 'ON' || 'OFF' }}
 on:
     push:
     workflow_dispatch:
