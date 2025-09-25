@@ -1,0 +1,29 @@
+name: 07 - Expressions & variables
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+                description: 'The debut needed or not'
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[debug] printing start-up'
+              if: ${{github.debug}}  
+              run: |
+                echo "I have been triggered by a(n) ${{github.event_name}} event."
+                echo "Branch is ${{github.ref}}"
+                echo "Commit Sha is ${{github.sha}}"
+                echo "Runner os is ${{runner.os}}"
+            - name: '[debug] Print when triggered from main'
+              if: ${{github.debug &&github.ref == 'refs/heads/main'}}  
+              run: |
+                echo "I was triggered from main"
+
+            - name: simple
+              run: echo "simple message"
+              
