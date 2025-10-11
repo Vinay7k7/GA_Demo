@@ -13,7 +13,7 @@ jobs:
               if: ${{ success() }}
               run: echo "I will print if the previous step succeed"
             - name: I will be excecute 
-              if: ${{ failed()}}
+              if: ${{ failure()}}
               run: echo "I will be print if any revious step fails"
             - name: I will be excecute 
               if: ${{ !cancelled()}}
