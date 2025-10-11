@@ -7,6 +7,9 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
+            - name: I will excecute when cancelled
+              if: ${{ cancelled()}}
+              run: echo "this will execute when the workflow get cancelled "
             - name: I will fail no matter what
               run: exit 1
             - name: I will be skipped 
@@ -18,7 +21,5 @@ jobs:
             - name: I will be excecute 
               if: ${{ !cancelled()}}
               run: echo "I will always print except if the workflow is cancelled "
-            - name: I will excecute when cancelled
-              if: ${{ cancelled()}}
-              run: echo "this will execute when the workflow get cancelled "
+           
     
