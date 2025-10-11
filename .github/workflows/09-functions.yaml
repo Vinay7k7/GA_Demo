@@ -1,15 +1,14 @@
 name: 09-functions
 # In this we will use the functions in the workflow 
 on:
-    pull_request:
+    # pull_request:
     workflow_dispatch:
 jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - name: I will excecute when cancelled
-              if: ${{ cancelled()}}
-              run: echo "this will execute when the workflow get cancelled "
+            - name: sleep for 20 sec
+              run: sleep 20
             - name: I will fail no matter what
               run: exit 1
             - name: I will be skipped 
@@ -21,5 +20,8 @@ jobs:
             - name: I will be excecute 
               if: ${{ !cancelled()}}
               run: echo "I will always print except if the workflow is cancelled "
+            - name: I will excecute when cancelled
+              if: ${{ cancelled()}}
+              run: echo "this will execute when the workflow get cancelled "
            
     
